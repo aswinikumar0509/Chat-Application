@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Chat App </title>
+</head>
+<body>
+    <nav class="shadow-lg px-3 py-2.5">
+        <div class="container flex flex-wrap justify-between mx-auto">
+            <a class="flex items-center" href="">
+                <img class="h-16 mr-3" src="https://cdn2.iconfinder.com/data/icons/whcompare-isometric-web-hosting-servers/50/email-laptop-256.png" alt="">
+                <span class="self-center text-4xl font-semibold">Chats App</span>
+            </a>
+
+            <div class="w-full block w-auto">
+                <ul class="flex flex-row p-4 mt-4 border rounded-lg border-grau-100 bg-blue-50">
+                    <li>
+                        <a class="block py-2 pl-3 pr-4 rounded bg-blue-700 text-white" href="">Rooms</a>
+                    </li>
+                    <li>
+                        <a class="block py-2 pl-3 pr-4 rounded " href="">About</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+    {% block body %}
+    {% endblock %}
+    
+</body>
+</html>

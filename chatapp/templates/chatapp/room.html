@@ -1,21 +1,33 @@
-{{chatroom.name}}
-
+{% extends 'chatapp/base.html' %}
+{% block body %}
+<div class="m-10 font-bold">
+{{ chatroom.name }}
+</div>
+<div class="message-container m-10 overflow-auto h-[700px]" id="message-container">
 <div id="chatmessages">
-    {% for message in messages %}>
-        {{ message.user.username }}
-       
-        {{ message.message_content }}
-        
-        {{ message.date}}
+    {% for message in messages %}
+    <div class="message shadow-lg p-3 m-3 rounded-lg w-1/2 bg-blue-300">
+        <div class="text-sm text-gray-500">
+            {{ message.user.username }}
+        </div>
+            {{ message.message_content }}
+        <div class="text-sm text-gray-500">
+            {{ message.date}}
+        </div>
+    </div>
          
     {% endfor %}
 </div>
+</div>
 
+<div class="form-container fixed inset-x-0 bottom-0 bg-blue-900 p-4">
 <form method="post">
-    <input id="message-input" type="text" name="message" placeholder="Enter Message">
-    <button id="send-button" type="submit">Send</button>
+    <input class="rounded-md px-2"  id="message-input" type="text" name="message" placeholder="Enter Message">
+    <button class="text-white ml-5" id="send-button" type="submit">Send</button>
 
 </form>
+</div>
+
 
 {{ chatroom.slug|json_script:"json-chatroomname" }}
 {{ request.user.username|json_script:"json-username" }}
@@ -66,5 +78,12 @@
         messageInput.value = ""
     }
 
-    
+    function scroll(){
+        const mcontainer = document.getElementById('message-container')
+        mcontainer.scrollTop = mcontainer.scrollHeight
+
+    }
+
+    scroll()    
 </script>
+{% endblock %}
